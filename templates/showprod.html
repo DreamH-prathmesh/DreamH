@@ -1,0 +1,125 @@
+{% extends "base.html" %} {% block title %}DreamH{% endblock %} {% block content %}
+
+
+
+
+
+<div class="container my-1">
+
+    <div class="row">
+
+        <div class="col-md-5">
+            <!-- <i style="color: blue;">{{prod.chat}} > {{prod.subchat}}</i>
+                <br><img src="{{prod.pimg.url}}" style="width: 90%;   border: 1px solid; padding: 10px;box-shadow: 5px 5px #888888; height: 500px;" class="img-fluid" />
+                 -->
+
+
+            <div id="demo" class="carousel slide" data-ride="carousel">
+
+
+
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img alt="" src="{{prod.pimg.url}}" style="width: 98%;   border: 1px solid; padding: 10px;box-shadow: 5px 5px #888888; height: 500px;" class="img-fluid">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img alt="" src="{{prod.pimg2.url}}" style="width: 98%;   border: 1px solid; padding: 10px;box-shadow: 5px 5px #888888; height: 500px;" class="img-fluid">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img alt="" src="{{prod.pimg3.url}}" style="width: 98%;   border: 1px solid; padding: 10px;box-shadow: 5px 5px #888888; height: 500px;" class="img-fluid">
+
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon "></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+
+            </div>
+
+            <!-- Indicators -->
+            <div>
+
+
+                <div class="container my-4">
+
+                    <div class="row">
+                        <div class="col">
+                            <div data-target="#demo" data-slide-to="0" class="active  img border-1"><img src="{{prod.pimg.url}}" style="height: 100px; width: 80px; "></div>
+                        </div>
+                        <div class="col">
+                            <div data-target="#demo" data-slide-to="1" class="img border-1"><img src="{{prod.pimg2.url}} " style="height: 100px; width: 80px; "></div>
+                        </div>
+                        <div class="col ">
+                            <div data-target="#demo " data-slide-to="2 " class="img border-1 "> <img src="{{prod.pimg3.url}}" style="height: 100px; width: 80px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- end slider -->
+
+
+
+        </div>
+
+
+
+        <div class="col-md-7">
+            <h1 class="h1 my-3">{{prod.pname}}</h1>
+            <p class="my-3">Price : </p>
+            <div style="color: #f50057;">
+                <b class="h4 ">Rs. {{prod.price}} /-  <i class="h4 mx-4"> Rs. <del>{{prod.dicount}}</del> <pree class="mx-5">  </preee>   With Free Shipping</i></b>
+            </div>
+
+            <div class="variations my-2">
+                <p>color : {{prod.color}} <span class="mx-3">size: {{prod.size}} </span></p>
+            </div>
+
+            <div class="sdesc my-3 h6">
+
+                <p> {{prod.sdesc}}</p>
+
+            </div>
+
+            <div class "long desc my-4">
+                <p> {{prod.desc}}
+            </div>
+
+            <a href="/order/{{prod.pid}}"><button id="sb{{prod.pid}}" class="btn primary-bg text-white my-5"> <span class="fa fa-cart-arrow-down"></span><pree>     </pree> Shop Now </button>
+                    </a>
+        </div>
+
+
+    </div>
+
+    <br> <br>
+
+</div>
+
+<!-- end cardsr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

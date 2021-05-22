@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}DreamH{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            
+        </div>
+
+        <div class="col-md-6 text-center">
+            <h3 class="h4 my-3">Track Your Order By Entering Order Id</h3>      
+            <form action="tracked" method="POST" class="form-group my-3">
+                {% csrf_token %}
+                <label class="h6">Enter Order Id: </label> &nbsp; &nbsp;<input type="tel" name="tid" class="form-control" required>
+                <label class="h6">Enter Mobile No: </label> &nbsp; &nbsp;<input type="tel" name="tphone" class="form-control" required>
+
+           <a href="tracked" > <br><button type="" class="primary-bg text-white btn"><span class="fa fa-map-marker "></span> Track</button>                            
+                             
+         
+           </a>       
+
+            </form>
+<br> 
+<br>
+<br> 
+<br>
+<br>  
+<br><br><br><br><br><br><br><br><br><br><br>
+ <!---->
+        </div>
+
+
+        <div class="col-md-3">
+            
+        </div>
+<
+    </div>
+    
+</div>
+
+{% endblock %}

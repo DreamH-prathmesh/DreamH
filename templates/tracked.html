@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}DreamH{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            
+        </div>
+
+        <div class="col-md-6 text-center">
+            <h3 class="h4 my-3">Track Your Order Status</h3>      
+                {% csrf_token %}
+
+            <p class="h4 my-5">Status <span class="fa fa-arrow-right"> </span> <span style="color: green;">  <span class="fa fa-truck"></span> {{prod.ostat}}</span></p>
+
+            <a href="/"><button class="primary-bg text-white btn"> <span class="fa fa-home"></span> Home</button>
+            </a>
+        </div>
+
+
+        <div class="col-md-3">
+            
+        </div>
+
+    </div>
+<br> 
+<br>
+<br> 
+<br>
+<br>  
+<br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+{% endblock %}

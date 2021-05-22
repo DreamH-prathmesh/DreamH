@@ -1,0 +1,98 @@
+{% extends "base.html" %} {% block title %}DreamH{% endblock %} {% block content %}
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-10">
+            <p class="h4 my-2 "> <span class="fa fa- fa-arrow-right"></span> {{prod.pname}}</p>
+            <br>
+            <form method="POST" action="upload">
+                {% csrf_token %}
+                <input type="hidden" value="{{prod.pid}}" name="pid">
+
+
+
+                <div class="form-group ">
+                    <label for="">Full Name: </label>
+                    <input type="text" class="form-control" id="" placeholder="Enter Your Full Name" name="fname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Mobile No: </label>
+                    <input type="tel" class="form-control" id="" placeholder="Enter Your Mobile_no" name="mobile_no" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Adress: </label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Your Proper Adress" name="address" required>
+	</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Pin: </label>
+                    <input type="text" class="form-control" id="" placeholder="Enter Your Post Area Pin_code " name="pin" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="">City: </label>
+                    <input type="text" class="form-control" id="" placeholder="Enter Your City " name="city" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="">House_No / Area / Building_Name: </label>
+                    <input type="text" class="form-control" id="" placeholder="Enter Your House_No / Area / Building_Name: " name="hno" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="">Alternative Number: </label>
+                    <input type="text" class="form-control" id="" placeholder="Enter Your House_No / Area / Building_Name: " name="alt_no" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for=""> Color : </label>
+                    <input type="text" class="form-control" id="" placeholder="{{prod.color}}" name="color">
+                </div>
+
+
+                <div class="form-group">
+                    <label for=""> Size : </label>
+                    <input type="text" class="form-control" id="" placeholder="{{prod.size}}" name="size">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Quentity  X <span style="color:red;"> Rs. {{prod.price}} /-</span>   </label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="quentity">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                    <label class="form-check-label" for="exampleCheck1">Check me out If you acceept all <a href="#">T & c </a></label>
+                </div>
+
+
+
+                <button id="" type="submit" class="btn primary-bg text-white"> <span class="fa fa-truck fa-lg"> </span> <pree> </pree> Place Order   
+  </button>
+
+            </form>
+            <br>
+            <br>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

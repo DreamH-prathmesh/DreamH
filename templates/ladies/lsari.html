@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}DreamH{% endblock %} {% block content %}
+
+
+
+<div class="container">
+
+    <div class="row">
+        {% for h in prm %} {% if forloop.counter0|divisibleby:3 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+
+        <div class="col-md-4">
+
+            <div class="card text-center">
+
+
+                <div class="card-body">
+
+                    <img src="{{h.pimg.url}}" style="width:100%; height: 300px; border: outset; border-color: black;">
+                    <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                    <p class="card-text">{{h.sdesc|slice:":40"}}..</p>
+                    <p class="h6">Rs. {{h.price}} /- <i class="" style="color:red;"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                                        </i></p>
+                    <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn primary-bg text-white" >Buy Now</button>    				
+				 	  </a>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </div>
+    <br><br>
+</div>
+
+
+
+{% endblock %}

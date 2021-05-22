@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>{% block title %} {% endblock %}</title>
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <title>Hello, world!</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+        <style>
+            .primary-bg {
+                background-color: #ad1457!important;
+            }
+            
+            .carousel slide {
+                width: 100%;
+                height: 200px;
+            }
+            
+            #imgs {
+                height: 300px;
+            }
+            
+            #tiba {
+                background-color: rgba(0, 0, 0, 0.26);
+            }
+        </style>
+    </head>
+
+    {% endblock %}
+
+    <body>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+        {% block navbar %}
+        <!--nav start-->
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark primary-bg">
+            <a class="navbar-brand" href="/"> <span class="fa fa-bolt"></span> DreamH</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/"><span class="fa fa-home"></span> <pree>  </pree>Home </a>
+                    </li>
+                    <!--        <li class="nav-item">
+          <a class="nav-link" href="#"><span class="fa fa-cart-arrow-down"></span><pree>     </pree>App Store</a>
+        </li>-->
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="fa fa-female"></span> Ladies Wear
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a href="/saree" class="dropdown-item">Sarees</a>
+                            <a class="dropdown-item" href="/kurti">Kurties</a>
+                            <a class="dropdown-item" href="/top">Tops</a>
+                            <a class="dropdown-item" href="/pant_shirt">Pant-Shirt</a>
+                            <a class="dropdown-item" href="/jeans">Jeans</a>
+                            <a class="dropdown-item" href="/tshirt">T-Shirt</a>
+                            <a class="dropdown-item" href="/workout">WorkOut</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/other">Other</a>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="fa fa-male"></span> Mens Wear
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/mshirt">Shirt</a>
+                            <a class="dropdown-item" href="/mtshirt">T-Shirt</a>
+                            <a class="dropdown-item" href="/mpant">Pants</a>
+
+                            <a class="dropdown-item" href="/minnerwear">Inner Wear</a>
+
+                            <a class="dropdown-item" href="/mworkout">WorkOut</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/mother"> others</a>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="fa fa-check"></span> Foot Wear
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/mens_footwear">Mens</a>
+                            <a class="dropdown-item" href="/ladies_footwear">Ladies</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/m_other_footwear">Others</a>
+                        </div>
+                    </li>
+
+
+
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="fa fa-gift"></span> Fashion
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/mens_fashion">Mens</a>
+                            <a class="dropdown-item" href="/ladies_fashion">Ladies</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/other_fashion"> Other</a>
+                        </div>
+                    </li>
+
+
+
+
+
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/track"><span class="fa fa-cart-arrow-down"></span> <pree>     </pree> Track</a>
+                    </li>
+                    <pree> </pree>
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1">Disabled</a>
+                    </li>
+                </ul>
+
+
+
+                <!--<form class="form-inline my-2 my-lg-0" method="POST" action="search">
+                    {% csrf_token %}
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" required>
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>-->
+		     <a href="/track"><button class="btn btn-outline-light text-white"><span class="fa fa-cart-arrow-down"></span></button></a>
+
+        </nav>
+
+
+
+
+
+        <!--nav end-->
+
+<!-- searc box -->
+	<div class="search primary-bg" style="height: 35px;">
+	<form method="POST" action="search">
+	{% csrf_token %}
+		<div class="container text-white">
+       			<div class="input-group mb-3 text-white">
+
+  				<input type="text" class="form-control primary-bg text-white" name="search" placeholder="" aria-label="Search" aria-describedby="basic-addon2" style="height: 30px;">
+  			<div class="input-group-append">
+    			<button class="btn btn-outline-lite text-white text-center" type="submit" style="height: 30px;"><span class="fa fa-search"></span> <span>Seaech</span></button><br>
+  			</div>
+			</div>
+    
+		</div>
+	</form>
+	</div>
+
+	<form>
+		<center><input type="text" > <button > Search</button></center>
+	</form>
+
+
+<!-- end searc box -->
+
+
+
+
+        {% endblock %} {% block content %} {% endblock %} {% block footer%}
+        <div class="foot">
+            <div class="container-fluid primary-bg text-white text-right">
+                <div class="smedia" style="font-size: 25px;">
+                    <div class="row">
+                        <div class="col-md-3 my-2 text-left">
+                            <span class="fa fa-bolt"> </span> DreamH Community<br>
+                            <p class="h6 ">Fast And Free Shipping</p>
+                        </div>
+
+                        <div class="col-md-8 my-2">
+                           <a href="https://www.facebook.com/DreamH-102026891637340/"> <span class="fa fa-facebook btn btn-outline-light"></span></a>
+                            <span class="fa fa-youtube btn btn-outline-light "></span>
+                            <span class="fa fa-instagram  btn btn-outline-light"></span>
+                            <span class="fa fa-twitter  btn btn-outline-light"></span>
+                            <a href="https://wa.link/k0woqm"><span class="fa fa-whatsapp  btn btn-outline-light"></span>
+                                </a>
+                            <p class="h6">Connect Us With Social Media</p>
+                        </div>
+
+                        <div class="col-md-1">
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-3 my-2 content">
+
+                    </div>
+
+                    <div class="col-md-6 my-2 text-center">
+                        <a href="https://wa.link/k0woqm">
+                            <span class="fa fa-whatsapp fa-lg btn btn-outline-dark text-white "></span><i> Message Using Whatsapp</i>
+                        </a>
+                    </div>
+
+                    <div class="col-md-3">
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="container-fluid m-0 p-0 text-center text-white" style="background-color: rgba(4, 0.30, 30, 0.50);">
+
+           <!-- <span class="fa fa-copyright my-2 h6"></span> --> <span class="my-2"> DreamH Community 2020</span> 
+        </div>
+        {% endblock %}
+
+    </body>
+
+</html>

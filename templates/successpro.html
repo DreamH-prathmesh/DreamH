@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}DreamH{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+            
+        </div>
+
+        <div class="col-md-10 text-center">
+            <span class="fa fa-check-circle-o" style="font-size: 200px ; color: green;"></span>
+            <h2 class="h2">Order Placed Id : <span style="color: blue">  {{prod.oid}}</span></h2>
+            <p style="color:;"> You Can Track Your Order By Order Id    </p>
+            <p class="h5">Thank You</p>     
+            <a href="/"><button class="btn primary-bg text-white my-3"><span class="fa fa-home"> </span> Home </button>      
+            </a>
+        </div>
+
+
+        <div class="col-md-1">
+            
+        </div>
+
+    </div>
+    <br> 
+<br>
+<br> 
+<br>
+<br>  
+<br><br><br>
+    
+</div>
+
+{% endblock %}

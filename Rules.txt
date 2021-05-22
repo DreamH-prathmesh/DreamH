@@ -1,0 +1,2 @@
+1) slide must have more than 3 items
+2) Product must have more than 7 intems
