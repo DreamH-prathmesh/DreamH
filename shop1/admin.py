@@ -3,6 +3,7 @@ from django.contrib import admin
 # Register your models here.
 
 from .models import slide, product, order
+from .models import soffer,catgory,brand
 
 
 '''class orderAdmin(admin.ModelAdmin):
@@ -30,3 +31,12 @@ class orderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(order, orderAdmin)
+
+
+admin.site.register(soffer)
+
+
+admin.site.register(catgory)
+
+
+admin.site.register(brand)
