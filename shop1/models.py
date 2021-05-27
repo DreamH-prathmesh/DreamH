@@ -49,8 +49,37 @@ class product(models.Model):
     color = models.CharField("color", max_length=50, null=True, blank=True)
     size = models.CharField("size", max_length=50, null=True, blank=True)
 
-    is_argumented = models.CharField("is_argumented", max_length=3, default="no")
+    is_avilable = models.CharField("is_argumented", max_length=3, default="no")
 
     def __str__(self):
         return self.pname
+    
 
+class soffer(models.Model):
+    poster = models.ImageField(upload_to="shop1/images/posters", default="")
+    offer_name = models.CharField(max_length=50, default="")
+    disscount = models.CharField(max_length=50, default="")
+    
+    def __str__(self):
+        return self.offer_name
+    
+
+class catgory(models.Model):
+    poster = models.ImageField(upload_to="shop1/images/posters", default="")
+    catgory_name = models.CharField(max_length=50, default="")
+
+
+    def __str__(self):
+        return self.catgory_name
+    
+    
+    
+
+class brand(models.Model):
+    poster = models.ImageField(upload_to="shop1/images/posters", default="")
+    brand_name = models.CharField(max_length=50, default="")
+    disscount = models.CharField(max_length=50, default="")
+    
+    def __str__(self):
+        return self.brand_name
+    

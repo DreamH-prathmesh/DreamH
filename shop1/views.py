@@ -4,6 +4,7 @@ from django.templatetags.static import static
 
 # Create your views here.
 from .models import slide, product
+from .models import soffer,catgory,brand
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -33,23 +34,33 @@ def home(request):
     prfs = product.objects.filter(
         Q(chat__icontains="fashion") | Q(subchat="fashion")).order_by('-pid')[:6]
 
-    # SHOW MORE
-    prma = product.objects.filter(
-        Q(chat__icontains="men") | Q(subchat="men")).order_by('-pid')[6:36]
+    # # SHOW MORE
+    # prma = product.objects.filter(
+    #     Q(chat__icontains="men") | Q(subchat="men")).order_by('-pid')[6:36]
 
-    prla = product.objects.filter(
-        Q(chat__icontains="ladies") | Q(subchat="ladies")).order_by('-pid')[6:36]
+    # prla = product.objects.filter(
+    #     Q(chat__icontains="ladies") | Q(subchat="ladies")).order_by('-pid')[6:36]
 
-    prfa = product.objects.filter(
-        Q(chat__icontains="footwear") | Q(subchat="footwear")).order_by('-pid')[6:36]
+    # prfa = product.objects.filter(
+    #     Q(chat__icontains="footwear") | Q(subchat="footwear")).order_by('-pid')[6:36]
 
-    prfsa = product.objects.filter(
-        Q(chat__icontains="fashion") | Q(subchat="fashion")).order_by('-pid')[6:36]
+    # prfsa = product.objects.filter(
+    #     Q(chat__icontains="fashion") | Q(subchat="fashion")).order_by('-pid')[6:36]
 
-    # /SHOW MORE
+    # # /SHOW MORE
 
-    arg = product.objects.filter(is_argumented="yes")
+    # arg = product.objects.filter(is_available="yes")
+    
+    bprice = product.objects.filter(Q(chat__icontains="best-price") | Q(subchat__icontains="best-price")).order_by('-pid')[:12]
 
+    from .models import soffer,catgory,brand
+    
+    soffer = soffer.objects.all()
+    
+    catgory = catgory.objects.all()
+    
+    brand = brand.objects.all()
+    
     data = {
         'im': im, 
         'im2': im2, 
@@ -59,11 +70,12 @@ def home(request):
         'prm': prm, 
         'prf': prf, 
         'prfs': prfs, 
-        'prma': prma, 
-        'prla': prla, 
-        "prfa": prfa, 
-        "prfsa": prfsa,
-        'arg':arg
+        'bprice':bprice,
+        
+        'soffer':soffer,
+        'catgory':catgory,
+        'brand':brand,
+    
         }
 
     return render(request, "home.html", data)
@@ -188,153 +200,37 @@ def tracked(request):
 
     return render(request, "test.html")
 
-
-# ladies wear
-
-def saree(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="saree") | Q(subchat="saree")).order_by('-pid')
-
-    return render(request, "ladies/lsari.html", {'prm': prm})
+# filter
 
 
-def kurti(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="kurti") | Q(subchat="kurti")).order_by('-pid')
 
-    return render(request, "ladies/lkurti.html", {'prm': prm})
+def category(request,cname):
+    
 
+    products = product.objects.filter(
+        Q(chat__icontains=cname) | Q(subchat__icontains=cname)).order_by('-pid')
+    
+    data = {
+        'products':products,
+    }
+    
+    return render(request, "filter/products.html", data)    
+    
+ 
 
-def top(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="top") | Q(subchat="top")).order_by('-pid')
+def products(request,cname):
+    
 
-    return render(request, "ladies/ltop.html", {'prm': prm})
+    products = product.objects.filter(
+        Q(chat__icontains=cname) | Q(subchat__icontains=cname)).order_by('-pid')
+    
+    data = {
+        'products':products,
+    }
+    
+    return render(request, "filter/products.html", data)    
+    
 
-
-def lpant_shirt(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="ladies-pantshirt") | Q(subchat="ladies-pantshirt")).order_by('-pid')
-
-    return render(request, "ladies/lpantshirt.html", {'prm': prm})
-
-
-def ljeans(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="ladies-jeans") | Q(subchat="ladies-jeans")).order_by('-pid')
-
-    return render(request, "ladies/ljens.html", {'prm': prm})
-
-
-def ltshirt(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="ladies-tshirt") | Q(subchat="ladies-tshirt")).order_by('-pid')
-
-    return render(request, "ladies/lt-shirt.html", {'prm': prm})
-
-
-def lworkout(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="ladies-workout") | Q(subchat="ladies-workout")).order_by('-pid')
-
-    return render(request, "ladies/lworkout.html", {'prm': prm})
-
-
-def lother(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="ladies-other") | Q(subchat="ladies-other")).order_by('-pid')
-
-    return render(request, "ladies/lother.html", {'prm': prm})
-
-# means wear
-
-
-def mshirt(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="mens-shirt") | Q(subchat="mens-shirt")).order_by('-pid')
-
-    return render(request, "mens/mshirt.html", {'prm': prm})
-
-
-def mtshirt(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="mens-tshirt") | Q(subchat="mens-tshirt")).order_by('-pid')
-
-    return render(request, "mens/mtshirt.html", {'prm': prm})
-
-
-def mpant(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="mens-pant") | Q(subchat="mens-pant")).order_by('-pid')
-
-    return render(request, "mens/mpant.html", {'prm': prm})
-
-
-def minnerwear(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="mens-innerwear") | Q(subchat="mens-innerwear")).order_by('-pid')
-
-    return render(request, "mens/minnerwear.html", {'prm': prm})
-
-
-def mother(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="mens-other") | Q(subchat="mens-other")).order_by('-pid')
-
-    return render(request, "mens/mother.html", {'prm': prm})
-
-
-def mworkout(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="mens-workout") | Q(subchat="mens-workout")).order_by('-pid')
-
-    return render(request, "mens/mworkout.html", {'prm': prm})
-
-# foot wear
-
-
-def mens_footwear(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="mens-footwear") | Q(subchat="mens-footwear")).order_by('-pid')
-
-    return render(request, "footwear/mens_footwear.html", {'prm': prm})
-
-
-def ladies_footwear(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="ladies-footwear") | Q(subchat="ladies-footwear")).order_by('-pid')
-
-    return render(request, "footwear/ladies_footwear.html", {'prm': prm})
-
-
-def m_other_footwear(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="m-other-footwear") | Q(subchat="m-other-footwear")).order_by('-pid')
-
-    return render(request, "footwear/m_other_footwear.html", {'prm': prm})
-
-# fashion
-
-
-def mens_fashion(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="mens-fashion") | Q(subchat="mens-fashion")).order_by('-pid')
-
-    return render(request, "fashion/men_fashion.html", {'prm': prm})
-
-
-def ladies_fashion(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="ladies-fashion") | Q(subchat="ladies-fashion")).order_by('-pid')
-
-    return render(request, "fashion/ladies_fashion.html", {'prm': prm})
-
-
-def other_fashion(request):
-    prm = product.objects.filter(
-        Q(chat__icontains="other-fashion") | Q(subchat="other-fashion")).order_by('-pid')
-
-    return render(request, "fashion/other_fashion.html", {'prm': prm})
 
 
 def arg(request):

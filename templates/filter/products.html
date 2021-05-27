@@ -1,0 +1,154 @@
+{% extends "base.html" %} {% block title %}DreamH{% endblock %} {% block content %}
+
+
+<div class="container-fluid best-price-pc">
+
+    <div class="row">
+        {% for h in products%} {% if forloop.counter0|divisibleby:4 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+
+        <div class="col-md-3">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":30"}}</h5>
+                        <p class="card-text">{{h.sdesc|slice:":40"}}..</p>
+                        {% comment %} <p class="">{{h.sdesc|slice:":40"}}..</p> {% endcomment %}
+                        <p class="p text-success    ">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                        </p>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<!-- best price pc  -->
+
+
+
+
+
+<!-- best price mobile  -->
+
+<div class="container-fluid best-price-mobile">
+
+    <div class="row mt-0">
+        {% for h in products%} {% if forloop.counter0|divisibleby:2 %}
+    </div>
+    <div class="row ">
+        {% endif %}
+
+        <div class="col m-0 p-0">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":20"}}</h5>
+                        <p class="card-text" style="font-size: x-small; margin-top: -15px;"> {{h.sdesc|slice:":40"}}..</p>
+                        <b>
+                            <p class="p text-success " style="font-size: small;margin-top: -15px;">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                            </p>
+                        </b>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn btn-sm primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+<br>
+
+
+<style>
+    .offer-card h5 {
+        font-family: 'Changa';
+    }
+    
+    .offer-card p {
+        margin-top: -15px;
+    }
+    
+    .offer-card img {
+        max-width: 150px;
+        height: auto;
+        align-self: center;
+    }
+    
+    .offer-card {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    @media only screen and (max-width: 700px) {
+        .offer-card img {
+            max-width: 70px;
+            height: auto;
+        }
+    }
+    
+    .bestp a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .bestp :hover {
+        color: rgb(139, 0, 139);
+    }
+    
+    .bestp button:hover {
+        opacity: 0.8;
+    }
+    
+    .best-price-mobile {
+        display: none;
+    }
+    
+    @media only screen and (max-width: 770px) {
+        .best-price-pc {
+            display: none;
+        }
+        .best-price-mobile {
+            display: block;
+        }
+    }
+    
+    #catg:hover {
+        opacity: 0.8;
+    }
+    
+    .catg-m button {
+        font-size: 1px;
+    }
+    
+    .catg img:hover {
+        opacity: 0.8;
+    }
+    
+    .card img {}
+</style>
+
+{% endblock %}
