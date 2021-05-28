@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
 
+
     {% load static %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"> -->
 
     <!-- Bootstrap CSS -->
 
@@ -23,6 +24,220 @@
 
     <link href='https://fonts.googleapis.com/css?family=Oleo Script' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Archivo Narrow' rel='stylesheet'>
+
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+        }
+        
+        .primary-bg {
+            background-color: #00796b;
+        }
+        
+        .brand {
+            font-family: 'Lobster';
+            font-size: 22px;
+        }
+        
+        li {
+            font-size: 27px;
+        }
+        
+        li:hover {
+            font-size: 27px;
+        }
+        
+        .foot {}
+        
+        .uname {
+            font-family: 'Merienda One';
+            color: black;
+            font-size: 14px;
+        }
+        
+        .card {
+            color: black;
+        }
+        
+        .card-header {
+            color: black;
+            background-color: white;
+        }
+        
+        .card-footer {
+            color: black;
+            background-color: white;
+            font-size: 10px;
+        }
+        
+        .card-footer i:hover {
+            color: red;
+        }
+        
+        .imgres {
+            width: 100%;
+            height: 620px;
+        }
+        
+        @media only screen and (max-width: 480px) {
+            .imgres {
+                height: 520px;
+            }
+        }
+        
+        nav a {
+            color: black;
+        }
+        
+        nav a:hover {
+            color: rgb(241, 60, 172);
+        }
+        
+        .primary-btn {
+            background-color: white;
+        }
+        
+        .primary-btn:hover {
+            color: rgb(241, 60, 172)
+        }
+        
+        .foot li a {
+            color: black;
+        }
+        
+        #ficons {
+            background-color: aqua;
+            color: black;
+        }
+        /* icons */
+        /* 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 350px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    color: black;
+    background-color: white;
+}
+
+.dropdown-content li {
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 480px) {
+    .dropdown-content li {
+        font-size: 14px;
+        background-color: white;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 250px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        padding: 12px 16px;
+        z-index: 1;
+        color: black;
+    }
+}
+
+.drop:hover .dropdown-content {
+    display: block;
+} */
+        /* nav */
+        
+        .list-group-item {
+            background-color: black;
+            color: white;
+            font-size: 22px;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        .brand-div a {
+            font-size: xx-large;
+            height: 45px;
+        }
+        
+        .navbar li {
+            font-size: larger;
+            font-family: font-family: 'Aldrich';
+        }
+        
+        .navbar input button {
+            font-size: larger;
+            font-family: font-family: 'Aldrich';
+        }
+        
+        .mobile-brand {
+            display: none;
+        }
+        
+        @media only screen and (max-width: 990px) {
+            .mobile-brand {
+                display: block;
+            }
+        }
+        
+        @media only screen and (max-width: 990px) {
+            .brand-div {
+                display: none;
+            }
+        }
+        
+        .brand-div {
+            max-height: 45px;
+        }
+        /* end nav */
+    </style>
+
 </head>
 
 
@@ -34,14 +249,14 @@
     <div class="brand-div">
         <div class=" navbar navbar-dark  primary-bg m-0 p-0 ">
             <!-- <a class="navbar-brand" href="#">Default</a> -->
-            <a class=" navbar-brand  mx-auto text-center h1" href="#">DreamH.in</a>
+            <a class=" navbar-brand  mx-auto text-center h1" href="#" style="font-family: 'Oleo Script';">DreamH.in</a>
         </div>
     </div>
     <!-- end brand -->
 
     <nav class="navbar navbar-expand-lg navbar-dark primary-bg py-0 my-0">
         <div class="mobile-brand">
-            <a class="navbar-brand h1 my-1 mx-4" href="/" style="font-size: 28px;"> DreamH.in</a>
+            <a class="navbar-brand h1 my-1 mx-4" href="/" style="font-size: 28px; font-family: Oleo Script;"> DreamH.in</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -159,8 +374,8 @@
 
             <form class="form-inline my-2 my-lg-0 " method="POST" action="search">
                 {% csrf_token %}
-                <input class="form-control form-control-sm rounded-0" type="search" placeholder="Search" aria-label="Search" name="search" style="font-size: 18px;" required>
-                <button class="btn btn-outline-light btn-sm  my-sm-0 rounded-0" style="font-size: 18px;" type="
+                <input class="form-control form-control-sm rounded-0" type="search" placeholder="Search" aria-label="Search" name="search" style="font-size: 14px;" required>
+                <button class="btn btn-outline-light btn-sm  my-sm-0 rounded-0" style="font-size: 14px;" type="
                             submit">Search</button>
             </form>
         </div>

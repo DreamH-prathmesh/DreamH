@@ -75,6 +75,27 @@
         opacity: 0.8;
     }
     
+    .carousel-inner img {
+        max-height: 250px;
+    }
+    
+    .divider p {
+        margin-top: -25px;
+    }
+    
+    .tbrand p {
+        font-size: small;
+    }
+    
+    @media only screen and (max-width: 500) {
+        .best-price-pc {
+            display: none;
+        }
+        .best-price-mobile {
+            display: block;
+        }
+    }
+    
     .card img {}
 </style>
 <!-- head banner
@@ -326,7 +347,7 @@
         {% endif %}
         <div class="col px-0 mx-0">
             <a href="/products/{{h.brand_name}}">
-                <div class="card  offer-card border-0 rounded-0">
+                <div class="card  offer-card border-0 rounded-0 tbrand">
 
                     <img src="{{h.poster.url}}" class="card-img-top">
 
