@@ -1,0 +1,1020 @@
+{% extends "base.html" %} {% block title %}DreamH{% endblock %} {% block content %}
+
+<style>
+    .offer-card h5 {
+        font-family: 'Changa';
+    }
+    
+    .offer-card p {
+        margin-top: -15px;
+    }
+    
+    .offer-card img {
+        max-width: 150px;
+        height: auto;
+        align-self: center;
+    }
+    
+    .offer-card {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    @media only screen and (max-width: 700px) {
+        .offer-card img {
+            max-width: 70px;
+            height: auto;
+        }
+    }
+    
+    .bestp a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .bestp :hover {
+        color: rgb(139, 0, 139);
+    }
+    
+    .bestp button:hover {
+        opacity: 0.8;
+    }
+    
+    .best-price-mobile {
+        display: none;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    a:hover {
+        text-decoration: none;
+        color: black;
+    }
+    
+    @media only screen and (max-width: 770px) {
+        .best-price-pc {
+            display: none;
+        }
+        .best-price-mobile {
+            display: block;
+        }
+    }
+    
+    #catg:hover {
+        opacity: 0.8;
+    }
+    
+    .catg-m button {
+        font-size: 1px;
+    }
+    
+    .catg img:hover {
+        opacity: 0.8;
+    }
+    
+    .card img {}
+</style>
+<!-- head banner
+
+<div class="container-fluid m-0 p-0 ">
+
+  <div class="jumbotron primary-bg">
+	<div class="container text-white" id="head1">
+	
+		<h3 class="display-3">The DreamH Tech House< /h3>
+		
+		<p>Collection Of Technical material , find here what you want , add knowledge , shopping hub ....</p>
+		
+		<ul>
+			<li>Application Softwares</li>
+			<li>Daily Blogs</li>
+			<li>Shopping with review</li>
+			<li>Tutorials</li>
+			<li>Quility Disscusion</li>
+			
+		
+		</ul>
+		
+		<button class="btn btn-outline-light btn-md "><span class="fa fa-cart-plus"></span> <pree>     </pree>shop</button>
+		
+		<button class="btn btn-outline-light btn-md"><span class="fa fa-user-circle fa-spin"></span> <pree>     </pree>Login</button> 
+		
+	
+	</div>
+   </div>
+</div>
+
+
+ end head banner -->
+
+
+
+<div id="carouselExampleCaptions" class="carousel slide m-0 p-y-0 " data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{im.simg.url}}" class="d-block w-100" alt="..">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 id="tiba">{{im.title}}</h5>
+                <p id="tiba">{{im.stitle}}</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{im2.simg.url}}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 id="tiba">{{im2.title}}</h5>
+                <p id="tiba">{{im2.stitle}}</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{im3.simg.url}}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 id="tiba">{{im3.title}}</h5>
+                <p id="tiba">{{im3.stitle}}</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+
+<!--slide end-->
+
+
+
+<!--divider 
+
+<div class="container-fluid primary-bg text-white text-center" styel=>
+    <h2 class="h4" style="padding-bottom: 4px; font-size: 1.5rem;"> AI Powered <span class="badge badge-secondary">Featured</span></h2>
+
+</div>
+
+<!-- end divider-->
+
+
+
+<!-- cards -->
+
+
+
+<!--divider 1-->
+{% load static %}
+
+<link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+
+<div class="my-3 divider container-fluid text-center">
+
+    <h2 class="h4" style="padding-bottom: 4px; font-size: 1.5rem;  font-family: 'Aldrich';" style="color: black;">
+        <b>
+        Special Offer
+        </b>
+    </h2>
+    <p class="p">____________________________</p>
+
+</div>
+
+<!-- end divider-->
+
+<!-- offer -->
+<link href='https://fonts.googleapis.com/css?family=Changa' rel='stylesheet'>
+
+<div class="container">
+    <div class="row">
+        {% for h in soffer%} {% if forloop.counter0|divisibleby:4 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+        <div class="col px-0 mx-0">
+            <a href="/products/{{h.offer_name}}">
+                <div class="card  offer-card border-0 rounded-0">
+
+                    <img src="{{h.poster.url}}" class="card-img-top">
+
+
+                    <h5 class="card-title text-center ">{{h.offer_name}}</h5>
+                    <p class="card-subtitle  mb-2 text-center text-success "> {{h.disscount}} </p>
+
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+<!-- end offer -->
+
+
+<div class="my-3 divider container-fluid text-center">
+
+    <h2 class="h4" style="padding-bottom: 4px; font-size: 1.5rem;  font-family: 'Aldrich';" style="color: black;">
+        <b>
+        Categories
+        </b>
+    </h2>
+    <p class="p">____________________________</p>
+
+</div>
+
+<!-- catg pc  -->
+
+<div class="container-fluid catg best-price-pc">
+
+    <div class="row">
+        {% for h in catgory%} {% if forloop.counter0|divisibleby:4 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+
+        <div class="col-3" id="catg catg-m">
+            <a href="/category/{{h.catgory_name}}">
+
+                <div class="card shadow ">
+
+                    <div class="card-body m-0 p-0" id="data-image">
+                        <img class="card-img-top" src="{{h.poster.url}}" alt="Card image cap rounded-0">
+                        <button class="btn btn-dark w-100 rounded-0">
+                        <b><span class="fa fa-angle-right fa-lg"> </span> {{h.catgory_name}} </b>
+                    </button>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<!-- /cat g pc pc  -->
+
+
+
+
+<!-- catg mobile  -->
+
+<div class="container-fluid catg best-price-mobile">
+
+    <div class="row ">
+        {% for h in catgory%} {% if forloop.counter0|divisibleby:4 %}
+    </div>
+    <div class="row ">
+        {% endif %}
+
+        <div class="col-3 m-0 p-0 rounded-0" id="catg">
+            <a href="/category/{{h.catgory_name}}">
+                <div class="card shadow rounded-0">
+                    <img class="card-img-top rounded-0" src="{{h.poster.url}}" alt="catgory img">
+                    <div class="card-body m-0 p-0">
+                        <button class="btn btn-dark w-100 rounded-0 btn-sm x-0 p-0" style="font-size: small;">
+                        <b><span class="fa fa-angle-right fa-sm"> </span> {{h.catgory_name}} </b>
+                    </button>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<!-- /cat g pc mobile  -->
+
+
+
+
+
+<div class="my-4 divider container-fluid text-center">
+
+    <h2 class="h4" style="padding-bottom: 4px; font-size: 1.5rem;  font-family: 'Aldrich';" style="color: black;">
+        <b>
+        Trusted Brands
+        </b>
+    </h2>
+    <p class="p">____________________________</p>
+
+</div>
+
+
+<!-- offer -->
+<link href='https://fonts.googleapis.com/css?family=Changa' rel='stylesheet'>
+
+
+<div class="container">
+    <div class="row">
+        {% for h in brand%} {% if forloop.counter0|divisibleby:4 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+        <div class="col px-0 mx-0">
+            <a href="/products/{{h.brand_name}}">
+                <div class="card  offer-card border-0 rounded-0">
+
+                    <img src="{{h.poster.url}}" class="card-img-top">
+
+
+                    <h5 class="card-title text-center ">{{h.brand_name}}</h5>
+                    <p class="card-subtitle  mb-2 text-center text-success "> {{h.disscount}} </p>
+
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<!-- end offer -->
+
+
+
+
+
+
+
+
+
+<div class="my-3 divider container-fluid text-center">
+
+    <h2 class="h4" style="padding-bottom: 4px; font-size: 1.5rem;  font-family: 'Aldrich';" style="color: black;">
+        <b>
+        Best Price
+        </b>
+    </h2>
+    <p class="p">____________________________</p>
+
+</div>
+
+
+
+
+<!-- best price pc  -->
+
+<div class="container-fluid best-price-pc">
+
+    <div class="row">
+        {% for h in bprice%} {% if forloop.counter0|divisibleby:4 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+
+        <div class="col-md-3">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":30"}}</h5>
+                        <p class="card-text">{{h.sdesc|slice:":40"}}..</p>
+                        {% comment %}
+                        <p class="">{{h.sdesc|slice:":40"}}..</p> {% endcomment %}
+                        <p class="p text-success    ">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                        </p>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<!-- best price pc  -->
+
+
+
+
+
+<!-- best price mobile  -->
+
+<div class="container-fluid best-price-mobile">
+
+    <div class="row mt-0">
+        {% for h in bprice%} {% if forloop.counter0|divisibleby:2 %}
+    </div>
+    <div class="row ">
+        {% endif %}
+
+        <div class="col m-0 p-0">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":20"}}</h5>
+                        <p class="card-text" style="font-size: x-small; margin-top: -15px;"> {{h.sdesc|slice:":40"}}..</p>
+                        <b>
+                            <p class="p text-success " style="font-size: small;margin-top: -15px;">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                            </p>
+                        </b>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn btn-sm primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+<br>
+
+<!-- \best price mobile  -->
+
+<center><a href="/products/best-price"><button class="btn primary-bg rounded-0 text-white " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
+			<span class="fa fa-arrow-up "> </span> Show All <span class="fa fa-arrow-down ">
+		</button></a>
+</center>
+<br>
+
+
+
+<div class="my-3 divider container-fluid text-center">
+
+    <h2 class="h4" style="padding-bottom: 4px; font-size: 1.5rem;  font-family: 'Aldrich';" style="color: black;">
+        <b>
+        Top Products
+        </b>
+    </h2>
+    <p class="p">____________________________</p>
+
+</div>
+
+
+
+
+<!-- best price pc  -->
+
+<div class="container-fluid best-price-pc">
+
+    <div class="row">
+        {% for h in pr%} {% if forloop.counter0|divisibleby:4 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+
+        <div class="col-md-3">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                        <p class="card-text">{{h.sdesc|slice:":40"}}..</p>
+                        <p class="p text-success    ">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                        </p>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<!-- best price pc  -->
+
+
+
+
+
+<!-- best price mobile  -->
+
+<div class="container-fluid best-price-mobile">
+
+    <div class="row mt-0">
+        {% for h in pr%} {% if forloop.counter0|divisibleby:2 %}
+    </div>
+    <div class="row ">
+        {% endif %}
+
+        <div class="col m-0 p-0">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                        <p class="card-text" style="font-size: x-small; margin-top: -15px;"> {{h.sdesc|slice:":40"}}..</p>
+                        <b>
+                            <p class="p text-success " style="font-size: small;margin-top: -15px;">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                            </p>
+                        </b>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn btn-sm primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+<br>
+
+<!-- \best price mobile  -->
+
+
+
+<div class="my-3 divider container-fluid text-center">
+
+    <h2 class="h4" style="padding-bottom: 4px; font-size: 1.5rem;  font-family: 'Aldrich';" style="color: black;">
+        <b>
+        Ladies Wear
+        </b>
+    </h2>
+    <p class="p">____________________________</p>
+
+</div>
+
+
+
+
+<!-- ladies pc  -->
+
+<div class="container-fluid best-price-pc">
+
+    <div class="row">
+        {% for h in prl%} {% if forloop.counter0|divisibleby:4 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+
+        <div class="col-md-3">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                        <p class="card-text">{{h.sdesc|slice:":40"}}..</p>
+                        <p class="p text-success    ">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                        </p>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<!-- / pc  -->
+
+
+
+
+
+<!-- ladies mobile  -->
+
+<div class="container-fluid best-price-mobile">
+
+    <div class="row mt-0">
+        {% for h in prl%} {% if forloop.counter0|divisibleby:2 %}
+    </div>
+    <div class="row ">
+        {% endif %}
+
+        <div class="col m-0 p-0">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                        <p class="card-text" style="font-size: x-small; margin-top: -15px;"> {{h.sdesc|slice:":40"}}..</p>
+                        <b>
+                            <p class="p text-success " style="font-size: small;margin-top: -15px;">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                            </p>
+                        </b>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn btn-sm primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+<br>
+
+<!-- \ mobile  -->
+
+
+
+
+<center><a href="/products/ladieswear"><button class="btn primary-bg text-white " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
+    						<span class="fa fa-arrow-up ">	</span> Show More <span class="fa fa-arrow-down ">
+					    </button></a>
+</center>
+
+
+<br>
+
+
+
+
+
+
+
+<div class="my-3 divider container-fluid text-center">
+
+    <h2 class="h4" style="padding-bottom: 4px; font-size: 1.5rem;  font-family: 'Aldrich';" style="color: black;">
+        <b>
+        Men's Wear
+        </b>
+    </h2>
+    <p class="p">____________________________</p>
+
+</div>
+
+
+
+
+<!-- mens pc  -->
+
+<div class="container-fluid best-price-pc">
+
+    <div class="row">
+        {% for h in prm%} {% if forloop.counter0|divisibleby:4 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+
+        <div class="col-md-3">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                        <p class="card-text">{{h.sdesc|slice:":40"}}..</p>
+                        <p class="p text-success    ">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                        </p>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<!-- / pc  -->
+
+
+
+
+
+<!-- mens mobile  -->
+
+<div class="container-fluid best-price-mobile">
+
+    <div class="row mt-0">
+        {% for h in prm%} {% if forloop.counter0|divisibleby:2 %}
+    </div>
+    <div class="row ">
+        {% endif %}
+
+        <div class="col m-0 p-0">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                        <p class="card-text" style="font-size: x-small; margin-top: -15px;"> {{h.sdesc|slice:":40"}}..</p>
+                        <b>
+                            <p class="p text-success " style="font-size: small;margin-top: -15px;">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                            </p>
+                        </b>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn btn-sm primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+<br>
+
+<!-- \ mobile  -->
+
+
+
+
+<center><a href="/products/menswear"><button class="btn primary-bg text-white " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
+    						<span class="fa fa-arrow-up ">	</span> Show More <span class="fa fa-arrow-down ">
+					    </button></a>
+</center>
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+<div class="my-3 divider container-fluid text-center">
+
+    <h2 class="h4" style="padding-bottom: 4px; font-size: 1.5rem;  font-family: 'Aldrich';" style="color: black;">
+        <b>
+        Foot Wear
+        </b>
+    </h2>
+    <p class="p">____________________________</p>
+
+</div>
+
+
+
+
+<!-- foot pc  -->
+
+<div class="container-fluid best-price-pc">
+
+    <div class="row">
+        {% for h in prf%} {% if forloop.counter0|divisibleby:4 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+
+        <div class="col-md-3">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                        <p class="card-text">{{h.sdesc|slice:":40"}}..</p>
+                        <p class="p text-success    ">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                        </p>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<!-- / pc  -->
+
+
+
+
+
+<!-- foot mobile  -->
+
+<div class="container-fluid best-price-mobile">
+
+    <div class="row mt-0">
+        {% for h in prf%} {% if forloop.counter0|divisibleby:2 %}
+    </div>
+    <div class="row ">
+        {% endif %}
+
+        <div class="col m-0 p-0">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                        <p class="card-text" style="font-size: x-small; margin-top: -15px;"> {{h.sdesc|slice:":40"}}..</p>
+                        <b>
+                            <p class="p text-success " style="font-size: small;margin-top: -15px;">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                            </p>
+                        </b>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn btn-sm primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+<br>
+
+<!-- \ mobile  -->
+
+
+
+
+<center><a href="/products/footwear"><button class="btn primary-bg text-white " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
+    						<span class="fa fa-arrow-up ">	</span> Show More <span class="fa fa-arrow-down ">
+					    </button></a>
+</center>
+
+
+<br>
+
+
+
+
+
+
+
+<div class="my-3 divider container-fluid text-center">
+
+    <h2 class="h4" style="padding-bottom: 4px; font-size: 1.5rem;  font-family: 'Aldrich';" style="color: black;">
+        <b>
+        Fashion
+        </b>
+    </h2>
+    <p class="p">____________________________</p>
+
+</div>
+
+
+
+
+<!-- foot pc  -->
+
+<div class="container-fluid best-price-pc">
+
+    <div class="row">
+        {% for h in prfs%} {% if forloop.counter0|divisibleby:4 %}
+    </div><br>
+    <div class="row">
+        {% endif %}
+
+        <div class="col-md-3">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                        <p class="card-text">{{h.sdesc|slice:":40"}}..</p>
+                        <p class="p text-success    ">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                        </p>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<!-- / pc  -->
+
+
+
+
+
+<!-- fashion mobile  -->
+
+<div class="container-fluid best-price-mobile">
+
+    <div class="row mt-0">
+        {% for h in prfs%} {% if forloop.counter0|divisibleby:2 %}
+    </div>
+    <div class="row ">
+        {% endif %}
+
+        <div class="col m-0 p-0">
+
+            <div class="card bestp rounded-0 shadow text-center ">
+
+                <a href="/showprod/{{h.pid}}">
+                    <div class="card-body">
+
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <h5 class="card-title">{{h.pname|slice:":40"}}</h5>
+                        <p class="card-text" style="font-size: x-small; margin-top: -15px;"> {{h.sdesc|slice:":40"}}..</p>
+                        <b>
+                            <p class="p text-success " style="font-size: small;margin-top: -15px;">Rs. {{h.price}} /-
+                            <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
+                            </i>
+                            </p>
+                        </b>
+                        <a href="/showprod/{{h.pid}}"><button id="bn{{h.pid}}" class="btn btn-sm primary-bg text-white w-100 rounded-0" >Buy Now</button>    				
+				 	  </a>
+                    </div>
+            </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+<br>
+
+<!-- \ mobile  -->
+
+
+
+
+<center><a href="/products/footwear"><button class="btn primary-bg text-white " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
+    						<span class="fa fa-arrow-up ">	</span> Show More <span class="fa fa-arrow-down ">
+					    </button></a>
+</center>
+
+
+<br> {% endblock %}

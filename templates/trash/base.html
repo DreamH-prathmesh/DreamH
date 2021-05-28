@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %} {% endblock %}</title>
+
+
+
+
+
+    {% load static %}
+
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"> -->
+
+
+
+    <!-- Bootstrap CSS -->
+
+
+
+    <link href="{% static 'bootstrap_4.5/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+
+
+
+    <script src="{% static 'bootstrap_4.5/js/bootstrap.min.js' %}"></script>
+
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <link href='https://fonts.googleapis.com/css?family=Oleo Script' rel='stylesheet'>
+
+    <link href='https://fonts.googleapis.com/css?family=Archivo Narrow' rel='stylesheet'>
+
+
+
+    <style>
+
+        body {
+
+            color: rgb(0, 0, 0);
+
+        }
+
+        
+
+        .primary-bg {
+
+            background-color: #00796b;
+
+        }
+
+        
+
+        .brand {
+
+            font-family: 'Lobster';
+
+            font-size: 22px;
+
+        }
+
+        
+
+        li {
+
+            font-size: 27px;
+
+        }
+
+        
+
+        li:hover {
+
+            font-size: 27px;
+
+        }
+
+        
+
+        .foot {}
+
+        
+
+        .uname {
+
+            font-family: 'Merienda One';
+
+            color: black;
+
+            font-size: 14px;
+
+        }
+
+        
+
+        .card {
+
+            color: black;
+
+        }
+
+        
+
+        .card-header {
+
+            color: black;
+
+            background-color: white;
+
+        }
+
+        
+
+        .card-footer {
+
+            color: black;
+
+            background-color: white;
+
+            font-size: 10px;
+
+        }
+
+        
+
+        .card-footer i:hover {
+
+            color: red;
+
+        }
+
+        
+
+        .imgres {
+
+            width: 100%;
+
+            height: 620px;
+
+        }
+
+        
+
+        @media only screen and (max-width: 480px) {
+
+            .imgres {
+
+                height: 520px;
+
+            }
+
+        }
+
+        
+
+        nav a {
+
+            color: black;
+
+        }
+
+        
+
+        nav a:hover {
+
+            color: rgb(241, 60, 172);
+
+        }
+
+        
+
+        .primary-btn {
+
+            background-color: white;
+
+        }
+
+        
+
+        .primary-btn:hover {
+
+            color: rgb(241, 60, 172)
+
+        }
+
+        
+
+        .foot li a {
+
+            color: black;
+
+        }
+
+        
+
+        #ficons {
+
+            background-color: aqua;
+
+            color: black;
+
+        }
+
+        /* icons */
+
+        /* 
+
+.dropdown-content {
+
+    display: none;
+
+    position: absolute;
+
+    background-color: #f9f9f9;
+
+    min-width: 350px;
+
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+    padding: 12px 16px;
+
+    z-index: 1;
+
+    color: black;
+
+    background-color: white;
+
+}
+
+
+
+.dropdown-content li {
+
+    font-size: 16px;
+
+}
+
+
+
+@media only screen and (max-width: 480px) {
+
+    .dropdown-content li {
+
+        font-size: 14px;
+
+        background-color: white;
+
+    }
+
+}
+
+
+
+@media only screen and (max-width: 480px) {
+
+    .dropdown-content {
+
+        display: none;
+
+        position: absolute;
+
+        background-color: white;
+
+        min-width: 250px;
+
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+        padding: 12px 16px;
+
+        z-index: 1;
+
+        color: black;
+
+    }
+
+}
+
+
+
+.drop:hover .dropdown-content {
+
+    display: block;
+
+} */
+
+        /* nav */
+
+        
+
+        .list-group-item {
+
+            background-color: black;
+
+            color: white;
+
+            font-size: 22px;
+
+        }
+
+        
+
+        .sidenav {
+
+            height: 100%;
+
+            width: 0;
+
+            position: fixed;
+
+            z-index: 1;
+
+            top: 0;
+
+            left: 0;
+
+            background-color: #111;
+
+            overflow-x: hidden;
+
+            transition: 0.5s;
+
+            padding-top: 60px;
+
+        }
+
+        
+
+        .sidenav a {
+
+            padding: 8px 8px 8px 32px;
+
+            text-decoration: none;
+
+            font-size: 25px;
+
+            color: #818181;
+
+            display: block;
+
+            transition: 0.3s;
+
+        }
+
+        
+
+        .sidenav a:hover {
+
+            color: #f1f1f1;
+
+        }
+
+        
+
+        .sidenav .closebtn {
+
+            position: absolute;
+
+            top: 0;
+
+            right: 25px;
+
+            font-size: 36px;
+
+            margin-left: 50px;
+
+        }
+
+        
+
+        @media screen and (max-height: 450px) {
+
+            .sidenav {
+
+                padding-top: 15px;
+
+            }
+
+            .sidenav a {
+
+                font-size: 18px;
+
+            }
+
+        }
+
+        
+
+        .brand-div a {
+
+            font-size: xx-large;
+
+            height: 45px;
+
+        }
+
+        
+
+        .navbar li {
+
+            font-size: larger;
+
+            font-family: font-family: 'Aldrich';
+
+        }
+
+        
+
+        .navbar input button {
+
+            font-size: larger;
+
+            font-family: font-family: 'Aldrich';
+
+        }
+
+        
+
+        .mobile-brand {
+
+            display: none;
+
+        }
+
+        
+
+        @media only screen and (max-width: 990px) {
+
+            .mobile-brand {
+
+                display: block;
+
+            }
+
+        }
+
+        
+
+        @media only screen and (max-width: 990px) {
+
+            .brand-div {
+
+                display: none;
+
+            }
+
+        }
+
+        
+
+        .brand-div {
+
+            max-height: 45px;
+
+        }
+
+        /* end nav */
+
+    </style>
+
+
+
+</head>
+
+
+
+
+<body>
+
+    {% block navbar %}
+    <!--nav start-->
+    <!-- brand -->
+    <div class="brand-div">
+        <div class=" navbar navbar-dark  primary-bg m-0 p-0 ">
+            <!-- <a class="navbar-brand" href="#">Default</a> -->
+            <a class=" navbar-brand  mx-auto text-center h1" href="#">DreamH.in</a>
+        </div>
+    </div>
+    <!-- end brand -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark primary-bg py-0 my-0">
+        <div class="mobile-brand">
+            <a class="navbar-brand h1 my-1 mx-4" href="/" style="font-size: 28px;"> DreamH.in</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"><span class="fa fa-home"></span>
+                        <pree> </pree>Home
+                    </a>
+                </li>
+                <!--        <li class="nav-item">
+                  <a class="nav-link" href="#"><span class="fa fa-cart-arrow-down"></span><pree>     </pree>App Store</a>
+                </li>-->
+
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-female"></span> Ladies Wear
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a href="/category/ladies-saree" class="dropdown-item">Saree</a>
+                        <a class="dropdown-item" href="/category/ladies-kurti">Kurtie</a>
+                        <a class="dropdown-item" href="/category/ladies-top">Top</a>
+                        <a class="dropdown-item" href="/category/ladies-pant-shirt">Pant-Shirt</a>
+                        <a class="dropdown-item" href="/category/ladies-jeans">Jeans</a>
+                        <a class="dropdown-item" href="/category/ladies-tshirt">T-Shirt</a>
+                        <a class="dropdown-item" href="/workout">WorkOut</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/category/ladies-other">Other</a>
+                    </div>
+                </li>
+
+
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-male"></span> Mens Wear
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/category/mens-shirt">Shirt</a>
+                        <a class="dropdown-item" href="/category/mens-tshirt">T-Shirt</a>
+                        <a class="dropdown-item" href="/category/mens-pant">Pants</a>
+
+                        <a class="dropdown-item" href="/category/mens-innerwear">Inner Wear</a>
+
+                        <a class="dropdown-item" href="/category/mens-workout">WorkOut</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/category/mens-other"> others</a>
+                    </div>
+                </li>
+
+
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-check"></span> Foot Wear
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/category/mens-footwear">Mens</a>
+                        <a class="dropdown-item" href="/category/ladies-footwear">Ladies</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/category/mens-other-footwear">Others</a>
+                    </div>
+                </li>
+
+
+
+
+
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-gift"></span> Fashion
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/category/mens-fashion">Mens</a>
+                        <a class="dropdown-item" href="/category/ladies-fashion">Ladies</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/category/other-fashion"> Other</a>
+                    </div>
+                </li>
+
+
+
+
+
+
+
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/track"><span class="fa fa-cart-arrow-down"></span>
+                        <pree> </pree> Track
+                    </a>
+                </li>
+                <pree> </pree>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/track"><span class="fa fa-whatsapp"></span>
+                        <pree> </pree>
+                    </a>
+                </li>
+                <pree> </pree>
+
+
+
+                <!-- <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1"><Disabled></a>
+                                </li> -->
+            </ul>
+
+
+
+            <form class="form-inline my-2 my-lg-0 " method="POST" action="search">
+                {% csrf_token %}
+                <input class="form-control form-control-sm rounded-0" type="search" placeholder="Search" aria-label="Search" name="search" style="font-size: 18px;" required>
+                <button class="btn btn-outline-light btn-sm  my-sm-0 rounded-0" style="font-size: 18px;" type="
+                            submit">Search</button>
+            </form>
+        </div>
+        <!--             
+                    <a href="/track"><button class="btn btn-outline-light text-white"><span class="fa fa-cart-arrow-down"></span></button></a> -->
+
+    </nav>
+
+
+
+
+
+    <!--nav end-->
+
+    <!-- searc box 
+        
+                <div class="container-fluid primary-bg m-0 p-0" style="height: 30px;">
+                    <center>
+                        <form action="search" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="search" placeholder="Search Product
+              " style="border:2px solid #7a11b8; height: 25px; width: 70%; border-radius:50px; padding: 0px 10px;" required/>
+                            <button class="sbt" type="submit" style=""><span class="fa fa-search fa-sm"></span> Search</button></center>
+                    </form>
+        
+                    <style>
+                        .sbt {
+                            background-color: #7a11b8;
+                            color: white;
+                            border: 2px solid #7b0fff;
+                            height: 25px;
+                            width: 15%;
+                            border-radius: 50px;
+                        }
+                        
+                        .sbt:hover {
+                            color: black;
+                            background-color: white;
+                        }
+                    </style>
+                </div>
+        
+                end searc box -->
+
+
+
+
+    {% endblock %} {% block content %} {% endblock %} {% block footer%}
+    <div class="foot">
+        <div class="container-fluid primary-bg text-white text-right">
+            <div class="smedia" style="font-size: 25px;">
+                <div class="row">
+                    <div class="col-md-3 my-2 text-left">
+                        <span class="fa fa-bolt"> </span> DreamH Community<br>
+                        <p class="h6 ">Fast And Free Shipping</p>
+                    </div>
+
+                    <div class="col-md-8 my-2">
+                        <a href="https://www.facebook.com/DreamH-102026891637340/"> <span class="fa fa-facebook btn btn-outline-light"></span></a>
+                        <span class="fa fa-youtube btn btn-outline-light "></span>
+                        <span class="fa fa-instagram  btn btn-outline-light"></span>
+                        <span class="fa fa-twitter  btn btn-outline-light"></span>
+                        <a href="https://wa.link/k0woqm"><span class="fa fa-whatsapp  btn btn-outline-light"></span>
+                        </a>
+                        <p class="h6">Connect Us With Social Media</p>
+                    </div>
+
+                    <div class="col-md-1">
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3 my-2 content">
+
+                </div>
+
+                <div class="col-md-6 my-2 text-center">
+                    <a href="https://wa.link/k0woqm">
+                        <span class="fa fa-whatsapp fa-lg btn btn-outline-dark text-white "></span><i> Message Using
+                            Whatsapp</i>
+                    </a>
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="container-fluid m-0 p-0 text-center text-white" style="background-color: rgba(4, 0.30, 30, 0.50);">
+
+        <!-- <span class="fa fa-copyright my-2 h6"></span> --><span class="my-2"> DreamH Community 2020</span>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    {% endblock %}
+
+</body>
+
+</html>
