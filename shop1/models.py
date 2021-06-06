@@ -1,4 +1,5 @@
 from django.db import models
+from PIL import Image
 
 
 # Create your models here.
@@ -42,21 +43,32 @@ class product(models.Model):
     desc = models.CharField("desc", max_length=1000)
     chat = models.CharField("chat", max_length=50)
     subchat = models.CharField("subchat", max_length=50)
-    pimg = models.ImageField(upload_to="shop1/images", default="")
+    pimg = models.ImageField(upload_to="shop1/images",  default="")
     pimg2 = models.ImageField(upload_to="shop1/images", default=1)
     pimg3 = models.ImageField(upload_to="shop1/images", default=1)
 
     color = models.CharField("color", max_length=50, null=True, blank=True)
     size = models.CharField("size", max_length=50, null=True, blank=True)
 
+    provider = models.CharField("provider", max_length=150, null=True, blank=True)
+
     is_avilable = models.CharField("is_argumented", max_length=3, default="no")
 
-    def __str__(self):
-        return self.pname
+
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #     img =   Image.open(self.pimg.path)
+
+    #     if img.height > 300 or img.weight >300:
+    #         output_size = (300,300)
+    #         img.thumbnail(output_size)
+    #         img.save(self.pimg.path) 
+
+
     
 
 class soffer(models.Model):
-    poster = models.ImageField(upload_to="shop1/images/posters", default="")
+    poster = models.ImageField(upload_to="shop1/images/posters",  default="")
     offer_name = models.CharField(max_length=50, default="")
     disscount = models.CharField(max_length=50, default="")
     
@@ -83,3 +95,4 @@ class brand(models.Model):
     def __str__(self):
         return self.brand_name
     
+   

@@ -16,9 +16,9 @@
                 <a href="/showprod/{{h.pid}}">
                     <div class="card-body">
 
-                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0" style="max-height:300px;">
                         <h5 class="card-title">{{h.pname|slice:":30"}}</h5>
-                        <p class="card-text">{{h.sdesc|slice:":40"}}..</p>
+                        <p class="card-text">{{h.sdesc|slice:":30"}}..</p>
                         {% comment %} <p class="">{{h.sdesc|slice:":40"}}..</p> {% endcomment %}
                         <p class="p text-success    ">Rs. {{h.price}} /-
                             <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
@@ -60,9 +60,9 @@
                 <a href="/showprod/{{h.pid}}">
                     <div class="card-body">
 
-                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0">
+                        <img src="{{h.pimg.url}}" class="card-img-top rounded-0" style="max-height:153px;>
                         <h5 class="card-title">{{h.pname|slice:":20"}}</h5>
-                        <p class="card-text" style="font-size: x-small; margin-top: -15px;"> {{h.sdesc|slice:":40"}}..</p>
+                        <p class="card-text" style="font-size: x-small; margin-top: -15px;"> {{h.sdesc|slice:":30"}}..</p>
                         <b>
                             <p class="p text-success " style="font-size: small;margin-top: -15px;">Rs. {{h.price}} /-
                             <i class="text-danger"> &nbsp; Rs. <del>{{h.dicount}}</del>
